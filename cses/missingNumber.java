@@ -1,30 +1,26 @@
-import java.util.*;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 
 public class missingNumber {
-    
-    static Scanner in;
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         
-        in = new java.util.Scanner(System.in);
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 
-        int num = in.nextInt();
+        int num = Integer.parseInt(reader.readLine());
 
-        int numsInput[] = new int [num-1];
-        for (int i = 0; i<numsInput.length; i++) {
-            numsInput[i] = in.nextInt();
+        String input = reader.readLine();
+        String[] nums = input.split(" ");
+
+        boolean[] found = new boolean[num + 1];   
+        for (String strNum : nums) {
+            int value = Integer.parseInt(strNum);
+            found[value] = true;
         }
 
-        boolean found;
         for (int i = 1; i<=num; i++) {
-            found = false;
-            for (int j = 0; j<numsInput.length; j++) {
-                if (i==numsInput[j]) {
-                    found = true;
-                    break;
-                }
-            }
-            if (!found) {
+            if (!found[i]) {
                 System.out.println(i);
                 return;
             }
