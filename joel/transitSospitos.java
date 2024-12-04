@@ -15,7 +15,7 @@ public class transitSospitos {
 
         int count = 0;
         for (int i = 0; i<ip.length-1; i++) {
-            //System.out.println(i + ") " + ip[i]);
+            System.out.println(i+1 + ") " + ip[i]);
             if (ip[i].startsWith(search[0]) && ip[i+1].startsWith(search[1])) count++;
         }
 
