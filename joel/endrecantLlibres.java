@@ -16,38 +16,48 @@ public class endrecantLlibres {
         }
 
         int result = 0;
-        char temp;
         for (int i = 0; i<llibres.length; i++) {
-            if (llibres[i] != 'G') {
+            if (llibres[i] == 'M') {
                 for (int j = i; j<llibres.length; j++) {
                     if (llibres[j]=='G') {
-                        temp = llibres[i];
-                        llibres[i] = llibres[j];
-                        llibres[j] = temp;
+                        llibres[i] = 'G';
+                        llibres[j] = 'M';
                         result++;
                         break;
                     }
                 }
             }
+
+            if (llibres[i] == 'P') {
+                for (int j = llibres.length-1; j>=i; j--) {
+                    if (llibres[j]=='G') {
+                        llibres[i] = 'G';
+                        llibres[j] = 'P';
+                        result++;
+                        break;
+                    }
+                }
+            }
+            
             if (llibres[i] == 'P') {
                 for (int j = i; j<llibres.length; j++) {
                     if (llibres[j]=='M') {
-                        temp = llibres[i];
-                        llibres[i] = llibres[j];
-                        llibres[j] = temp;
+                        llibres[i] = 'M';
+                        llibres[j] = 'P';
                         result++;
                         break;
                     }
                 }
             }
+            
         }
 
-        ///*
+        /*
         for (int i = 0; i<llibres.length; i++) {
             System.out.print(llibres[i]);
         }
         System.out.println();
-        //*/
+        */
 
         System.out.println(result);
 
