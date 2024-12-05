@@ -6,7 +6,7 @@ public class scanner {
 
     public static void main(String[] args) {
         
-        in = new java.util.Scanner(System.in);
+        in = new Scanner(System.in);
 
         int n = in.nextInt();
         System.out.print(n);
