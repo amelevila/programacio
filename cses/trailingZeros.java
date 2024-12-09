@@ -1,3 +1,4 @@
+import java.math.BigInteger;
 import java.util.*;
 
 public class trailingZeros {
@@ -10,18 +11,20 @@ public class trailingZeros {
 
         int n = in.nextInt();
         
-        long factorial = 1;
+        BigInteger factorial = BigInteger.ONE;
         for (int i = 1; i<=n; i++) {
-            factorial *= i;
+            factorial = factorial.multiply(BigInteger.valueOf(i));
         }
 
-        System.out.println(factorial);
+        //System.out.println(factorial);
+
 
         int count = 0;
-        while (factorial%10==0) {
+        while (factorial.mod(BigInteger.TEN).equals(BigInteger.ZERO)) {
             count++;
-            factorial /= 10;
+            factorial = factorial.divide(BigInteger.TEN);
         }
+            
 
         System.out.println(count);
 
