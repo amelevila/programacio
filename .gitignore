@@ -1,24 +1,122 @@
-# Compiled class file
+# -------------------------------
+# C++ ignores
+# -------------------------------
+
+# Compiled object files
+*.o
+*.obj
+
+# Executables and binaries
+*.exe
+*.out
+*.app
+*.dll
+*.so
+*.dylib
+
+# Debug files
+*.pdb
+*.ilk
+
+# Build directories
+build/
+bin/
+dist/
+Debug/
+Release/
+
+# C++ IDE and editor configurations
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+*.vcxproj*
+*.sln
+*.user
+
+# Logs and temp files
+*.log
+*.tmp
+*.temp
+
+# macOS specific
+.DS_Store
+
+# Windows specific
+Thumbs.db
+Desktop.ini
+
+# Linux specific
+*.swp
+
+# -------------------------------
+# Java ignores
+# -------------------------------
+
+# Compiled class files
 *.class
 
-# Log file
-*.log
-
-# BlueJ files
-*.ctxt
-
-# Mobile Tools for Java (J2ME)
-.mtj.tmp/
-
-# Package Files #
+# JAR files
 *.jar
 *.war
-*.nar
 *.ear
-*.zip
-*.tar.gz
-*.rar
 
-# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
-hs_err_pid*
-replay_pid*
+# Build directories
+target/
+build/
+bin/
+out/
+
+# IntelliJ IDEA files
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# Eclipse project files
+.project
+.classpath
+.settings/
+.metadata/
+
+# NetBeans project files
+nbproject/
+build.xml
+*.nbattrs
+
+# Maven
+.mvn/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+
+# Gradle
+.gradle/
+build/
+*.gradle
+*.gradle.kts
+gradle-app.setting
+
+# Logs and temp files
+*.log
+*.tmp
+*.temp
+
+# macOS specific
+.DS_Store
+
+# Windows specific
+Thumbs.db
+Desktop.ini
+
+# -------------------------------
+# General ignores
+# -------------------------------
+
+# Environment files
+.env
+.env.local
+
+#
