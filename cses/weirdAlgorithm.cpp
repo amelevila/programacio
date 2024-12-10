@@ -2,6 +2,17 @@
 using namespace std;
 
 int main() {
-    cout << "hola" << endl;
+    
+    long long num;
+    cin >> num;
+
+    cout << num << " ";
+    while (num!=1) {
+            if(num%2==0) num /= 2;
+            else num = num * 3 + 1;
+            cout << num << " ";
+        }
+        cout << endl;
+
     return 0;
 }
