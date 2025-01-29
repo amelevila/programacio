@@ -147,19 +147,7 @@ public class blackjack {
                         String move = in.nextLine();
                         move = move.toUpperCase();
 
-                        // get answer
-                        if (ace) {
-                                int nAce;
-                                if (card == 11 || card == 1)
-                                        nAce = card;
-                                else
-                                        nAce = prevCard;
-                                answer = softTotals[totalcards - nAce - 1][dealersUpcard - 2];
-                        }
-
-                        else {
-                                answer = hardTotals[totalcards - 3][dealersUpcard - 2];
-                        }
+                        answer = getAnswer(ace, card, prevCard, totalcards, dealersUpcard, softTotals, hardTotals);
 
                         checkAnswer(answer, move);
 
@@ -247,6 +235,22 @@ public class blackjack {
                         return ("You lose " + bet);
                 } else {
                         return "Push";
+                }
+        }
+
+        public static String getAnswer(boolean ace, int card, int prevCard, int totalcards, int dealersUpcard,
+                        String[][] softTotals, String[][] hardTotals) {
+                if (ace) {
+                        int nAce;
+                        if (card == 11 || card == 1)
+                                nAce = card;
+                        else
+                                nAce = prevCard;
+                        return softTotals[totalcards - nAce - 1][dealersUpcard - 2];
+                }
+
+                else {
+                        return hardTotals[totalcards - 3][dealersUpcard - 2];
                 }
         }
 }
