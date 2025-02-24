@@ -39,11 +39,10 @@ public class controlArmas {
  
    public static void main(String[] args) throws IOException {
 
-      int t = Integer.parseInt(reader.readLine());
-      while (t!=0) {
+      int t;
+      while ((t = Integer.parseInt(reader.readLine())) !=0) {
          casoPrueba(t);
          System.out.println("---");
-         t = Integer.parseInt(reader.readLine());
       }
    }
     
