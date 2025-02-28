@@ -1,14 +1,15 @@
 import java.util.*;
 
 public class scanner {
+    static Scanner in = new Scanner(System.in);
 
-    static Scanner in;
-
-    public static void main(String[] args) {
+    public static void casoPrueba() {
         
-        in = new Scanner(System.in);
 
-        int n = in.nextInt();
-        System.out.print(n);
+
+    }
+    public static void main(String[] args) {
+    int t = in.nextInt();
+        while (t-- > 0) casoPrueba();
     }
 }
