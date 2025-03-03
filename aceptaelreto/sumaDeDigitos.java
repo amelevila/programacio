@@ -1,29 +1,36 @@
-import java.util.*;
+import java.util.Scanner;
 
 public class sumaDeDigitos {
-   static Scanner in = new Scanner(System.in);
-   
-   public static void casoPrueba(int n) {
-        
-      Deque<Integer> pila = new ArrayDeque<>();
-      pila.push(-1);
-      while (n>=10) {
-         pila.push(n%10);
-         n /= 10;
-      }
+
+   public static void casoPrueba(String input) {
 
       int result = 0;
-      while (pila.peek() != -1) {
-         result += pila.poll();
+      StringBuilder resultS = new StringBuilder();
+      boolean primer = true;
+
+      for (char c : input.toCharArray()) {
+         if (!primer) {
+            resultS.append(" + ");
+         }
+         primer = false;
+         
+         result += c - '0';
+         resultS.append(c);
       }
 
-      result += n;
-      
-      System.out.println(result);
+      resultS.append(" = ").append(result);
+
+      System.out.println(resultS);
 
    }
+
    public static void main(String[] args) {
-      int n;
-      while ((n = in.nextInt()) != -1) casoPrueba(n);
+      Scanner in = new Scanner(System.in);
+
+      String input;
+      while (!((input = in.nextLine()).equals("-1")))
+         casoPrueba(input);
+
+      in.close();
    }
 }
