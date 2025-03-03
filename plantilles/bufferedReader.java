@@ -1,7 +1,7 @@
 import java.io.*;
 
 public class bufferedReader {
-    static BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+    static BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
     
     public static void casoPrueba() throws IOException {
 
@@ -10,7 +10,7 @@ public class bufferedReader {
     } 
     
     public static void main(String[] args) throws IOException {
-        int t = Integer.parseInt(reader.readLine());
+        int t = Integer.parseInt(in.readLine());
         while (t-- > 0) casoPrueba();
     }
     
