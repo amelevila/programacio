@@ -11,14 +11,14 @@ public class felicidades {
          return;
       }
       String[] numsString = felis.split(" ");
-      int[] nums = new int[numsString.length];
+      long[] nums = new long[numsString.length];
 
       for (int i = 0; i<nums.length; i++) {
-         nums[i] = Integer.parseInt(numsString[i]);
+         nums[i] = Long.parseLong(numsString[i]);
       }
 
-      int ultim = nums[0];
-      int result = 0;
+      long ultim = nums[0];
+      long result = 0;
       for (int i = 1; i<nums.length; i++) {
          if (nums[i] > (ultim+t) || nums[i] == 0) {
             result++;
