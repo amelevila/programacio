@@ -1,38 +1,28 @@
-import java.io.*;
+import java.util.Scanner;
 
 public class felicidades {
-   static BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
-    
-   public static void casoPrueba(int t) throws IOException {
+   static Scanner in = new Scanner(System.in); 
 
-      String felis = in.readLine();
-      if (felis.equals("0")) {
-         System.out.println(0);
-         return;
-      }
-      String[] numsString = felis.split(" ");
-      long[] nums = new long[numsString.length];
+   public static void casoPrueba(int t) {
 
-      for (int i = 0; i<nums.length; i++) {
-         nums[i] = Long.parseLong(numsString[i]);
-      }
-
-      long ultim = nums[0];
-      long result = 0;
-      for (int i = 1; i<nums.length; i++) {
-         if (nums[i] > (ultim+t) || nums[i] == 0) {
+      int num = in.nextInt();
+      int ultim = num;
+      int result = 0;
+      while (num != 0) {
+         num = in.nextInt();
+         if (num > (ultim+t) || num == 0) {
             result++;
-            ultim = nums[i];
+            ultim = num;
          }
       }
       System.out.println(result);
 
    } 
     
-   public static void main(String[] args) throws IOException {
-      String t;
-      while (!((t = in.readLine()).isEmpty())) {
-         casoPrueba(Integer.parseInt(t));
+   public static void main(String[] args) {
+      while (in.hasNextInt()) {
+         int t = in.nextInt();
+         casoPrueba((t));
       }
    }
     
