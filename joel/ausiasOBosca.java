@@ -18,11 +18,15 @@ public class ausiasOBosca {
         String insti = "";
         String planta = "";
 
-        for (int i = 0; i<bosca.length; i++) {
-            if (bosca[i].equals(search)) insti = "BOSCA";
+        for (String bosca1 : bosca) {
+            if (bosca1.equals(search)) {
+                insti = "BOSCA";
+            }
         }
-        for (int i = 0; i<ausias.length; i++) {
-            if (ausias[i].equals(search)) insti = "AUSIAS";
+        for (String ausia : ausias) {
+            if (ausia.equals(search)) {
+                insti = "AUSIAS";
+            }
         }
         int pos = -3;
         if (search.substring(0,2).equals("P3") || search.substring(0,2).equals("P2") || search.substring(0,2).equals("P1") || search.substring(0,2).equals("PB") || search.substring(0,2).equals("S1") || search.substring(0,2).equals("S2")) {
@@ -35,24 +39,14 @@ public class ausiasOBosca {
             }
             pos /= 3;
             switch (pos) {
-                case 0:
-                    planta = "P3";
-                    break;
-                case 1:
-                    planta = "P2";
-                    break;
-                case 2:
-                    planta = "P1";
-                    break;
-                case 3:
-                    planta = "S1";
-                    break;
-                case 4:
-                    planta = "S2";
-                    break;
+                case 0 -> planta = "P3";
+                case 1 -> planta = "P2";
+                case 2 -> planta = "P1";
+                case 3 -> planta = "S1";
+                case 4 -> planta = "S2";
             
-                default:
-                    break;
+                default -> {
+                }
             }
         }
         if (pos==-1) return;
