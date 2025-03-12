@@ -9,7 +9,7 @@ public class scanner {
 
     }
     public static void main(String[] args) {
-    int t = in.nextInt();
+        int t = in.nextInt();
         while (t-- > 0) casoPrueba();
     }
 }
