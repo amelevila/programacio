@@ -5,7 +5,7 @@ public class scanner {
 
     public static void casoPrueba() {
         
-
+        
 
     }
     public static void main(String[] args) {
