@@ -16,7 +16,7 @@ public class I_Fregando_por_no_pagar {
         int instancia = 0;
         Stack<Integer> segons = new Stack<>();
         segons.add(plats[0][1]);
-        while (segons.size()!=0) { 
+        while (!segons.isEmpty()) { 
             while (index<n && plats[index][0] == instancia) {
                 segons.add(plats[index][1]);
                 index++;
