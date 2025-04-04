@@ -12,22 +12,34 @@ public class I_Fregando_por_no_pagar {
             plats[i][1] = in.nextInt();            
         }
 
-        int index = 1;
+        int index = 0;
         int temps = 0;
+        int actual = -1;
         Stack<Integer> segons = new Stack<>();
-        segons.add(plats[0][1]);
+        String result = "";
+        boolean ultim = false;
 
-        while (true) { 
-            while (plats[index][0] == temps) {
+        segons.add(-1);
+        while (!segons.isEmpty()) { 
+            while (index < n && plats[index][0] == temps) {
                 segons.add(plats[index][1]);
+                if (index == n-1) {
+                    ultim = true;
+                }
                 index++;
             }
-            temps++;
             
-            System.out.println(segons);
-            segons.add(segons.pop()-1);
-            System.out.println(segons);
+            if (actual==0 || actual == -1) {
+                if (segons.size() != 1) result += (segons.size()-1 + " ");
+                actual = segons.pop();
+                if (ultim) break;
+            }
+
+            temps++;
+            actual--;
+            
         }
+        System.out.println(result.strip());
 
 
     }
