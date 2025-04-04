@@ -13,22 +13,21 @@ public class I_Fregando_por_no_pagar {
         }
 
         int index = 1;
-        int instancia = 0;
+        int temps = 0;
         Stack<Integer> segons = new Stack<>();
         segons.add(plats[0][1]);
-        while (!segons.isEmpty()) { 
-            while (index<n && plats[index][0] == instancia) {
+
+        while (true) { 
+            while (plats[index][0] == temps) {
                 segons.add(plats[index][1]);
                 index++;
             }
-            instancia++;
+            temps++;
+            
+            System.out.println(segons);
             segons.add(segons.pop()-1);
-            if (segons.peek() == 0) {
-                System.out.print(segons.size() + " ");
-                segons.pop();
-            }
+            System.out.println(segons);
         }
-        System.out.println();
 
 
     }
