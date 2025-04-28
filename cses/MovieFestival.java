@@ -2,7 +2,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.TreeMap;
-
+ 
 public class MovieFestival {
     static BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
     public static void main(String[] args) throws IOException {
@@ -11,18 +11,28 @@ public class MovieFestival {
         TreeMap<Integer, Integer> movies = new TreeMap<>();
         for (int i = 0; i<n; i++) {
             String[] movie = in.readLine().split(" ");
-            int key = Integer.parseInt(movie[0]);
-            int value = Integer.parseInt(movie[1]);
-            if (!movies.containsKey(key) || value < movies.get(key)) movies.put(key, value);
+            int start = Integer.parseInt(movie[0]);
+            int end = Integer.parseInt(movie[1]);
+            if (!movies.containsKey(end) || start > movies.get(end)) movies.put(end, start);
         }
-        int i = movies.firstKey();
+
+        int end = 0;
         int count = 0;
-        while (i<=movies.lastKey()) { 
-            while (!movies.containsKey(i)) i++;
-            i = movies.get(i);
-            count++;
+        int lastStart = 0;
+        int lastEnd = 0;
+        while (end<movies.lastKey()) {
+            while (end < movies.lastKey()) {
+                end = movies.higherKey(end);
+                int start = movies.get(end);
+                if (start > lastStart && start >= lastEnd) {
+                    lastEnd = end;
+                    lastStart = start;
+                    //System.out.println(start + " / " + end);
+                    count++;
+                    break;
+                }
+            }
         }
         System.out.println(count);
-
     }
 }
