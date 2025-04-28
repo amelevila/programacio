@@ -10,7 +10,7 @@ programa="${1%.java}"
 javac "$programa.java"
 if [ $? -eq 0 ]; then
     java "$programa" < /home/dev/programacio/casosDePrueba.txt
-    rm "$programa.class"
+    rm *.class
 else
     echo "Error en la compilación"
     return 1
