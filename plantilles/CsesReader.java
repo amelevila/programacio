@@ -1,13 +1,15 @@
 import java.io.DataInputStream;
 import java.io.IOException;
-
+import java.util.ArrayList;
+import java.util.List;
+ 
 public class CsesReader {
     static class Reader {
         final private int BUFFER_SIZE = 1 << 16;
         private final DataInputStream din;
         private final byte[] buffer;
         private int bufferPointer, bytesRead;
-
+ 
         public Reader()
         {
             din = new DataInputStream(System.in);
@@ -20,14 +22,14 @@ public class CsesReader {
             if (bytesRead == -1)
                 buffer[0] = -1;
         }
-
+ 
         private byte read() throws IOException
         {
             if (bufferPointer == bytesRead)
                 fillBuffer();
             return buffer[bufferPointer++];
         }
-
+ 
         @SuppressWarnings("ConvertToTryWithResources")
         public void close() throws IOException
         {
@@ -48,14 +50,21 @@ public class CsesReader {
             {
                 ret = ret * 10 + c - '0';
             }  while ((c = read()) >= '0' && c <= '9');
-
+ 
             if (neg)
                 return -ret;
             return ret;
         }
     }
-    static Reader br = new Reader();
+    static Reader in = new Reader();
     public static void main(String[] args) throws IOException {
-        System.out.println(br.nextInt());
+        int n = in.nextInt();
+ 
+        List<Long> values = new ArrayList<>();
+        for (int i = 0; i<n; i++) {
+            long value = in.nextInt();
+            values.add(value);
+        }
+        System.out.println(values);
     }
 }
