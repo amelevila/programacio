@@ -1,7 +1,7 @@
 import java.io.DataInputStream;
 import java.io.IOException;
-import java.util.LinkedHashSet;
 import java.util.Set;
+import java.util.TreeSet;
  
 public class CollectingNumber {
     static class Reader {
@@ -60,26 +60,16 @@ public class CollectingNumber {
     public static void main(String[] args) throws IOException {
         int n = in.nextInt();
  
-        Set<Integer> nums = new LinkedHashSet<>();
+        int round = 0;
+        Set<Integer> nums = new TreeSet<>();
         for (int i = 0; i<n; i++) {
             int value = in.nextInt();
             nums.add(value);
-        }
-
-        int rounds = 0;
-        
-        while (!nums.isEmpty()) {
-            int first = nums.iterator().next();
-            System.out.println(first);
-            for (int num : nums) {
-                if (num>first) {
-                    nums.remove(first);
-                    first = num;
-                }
-                System.out.println(nums);
+            if (value == nums.iterator().next()) {
+                round++;
             }
-            rounds++;
+            
         }
-        System.out.println(rounds);
+        System.out.println(round);
     }
 }
