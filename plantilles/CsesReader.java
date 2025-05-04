@@ -60,9 +60,9 @@ public class CsesReader {
     public static void main(String[] args) throws IOException {
         int n = in.nextInt();
  
-        List<Long> values = new ArrayList<>();
+        List<Integer> values = new ArrayList<>();
         for (int i = 0; i<n; i++) {
-            long value = in.nextInt();
+            int value = in.nextInt();
             values.add(value);
         }
         System.out.println(values);
