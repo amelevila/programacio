@@ -1,8 +1,7 @@
 import java.io.DataInputStream;
 import java.io.IOException;
-import java.util.TreeMap;
- 
-public class Playlist {
+
+public class CoinPiles {
     static class Reader {
         final private int BUFFER_SIZE = 1 << 16;
         private final DataInputStream din;
@@ -58,18 +57,43 @@ public class Playlist {
     static Reader in = new Reader();
     public static void main(String[] args) throws IOException {
         int n = in.nextInt();
- 
-        TreeMap<Integer, Integer> songs = new TreeMap<>();
-        int max = 0;
-        for (int i = 0; i<n; i++) {
-            int song = in.nextInt();
-            if (songs.containsKey(song)) {
-                if (songs.size()>max) max = songs.size();
-                songs.clear();
+        while (n-- > 0) {
+            int p1 = in.nextInt();
+            int p2 = in.nextInt();
+            if (p1 > p2) {
+                int tmp = p1;
+                p1 = p2;
+                p2 = tmp;
             }
-            songs.put(song, i);
+            
+            if (p1>p2*2) {
+                System.out.println("NO");
+                continue;
+            }
+
+            /*int count = 0;
+            int ogp1 = p1;
+            int ogp2 = p2;*/
+            while (p1 != p2*2) {
+                //count++;
+                p1--;
+                p2 -= 2;
+                if (p1 <=0 || p2 <= 0 || p1>p2*2) {
+                    System.out.println("NO");
+                    break;
+                }
+            }
+            if (p1 > 0 && p2 > 0 && p1 == p2*2) {
+                /*System.out.print(ogp1 + " - ");
+                System.out.print(count + " = ");
+                System.out.println(p1);
+                System.out.print(ogp2 + " - ");
+                System.out.print(count*2 + " = ");
+                System.out.println(p2);
+                System.out.println(ogp1-ogp2);*/
+                System.out.println("YES");
+            }
+
         }
-        if (songs.size()>max) max = songs.size();
-        System.out.println(max);
     }
 }
